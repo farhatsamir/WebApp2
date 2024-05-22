@@ -1,0 +1,48 @@
+﻿@page
+@model final_project.Pages.admin.Messages.IndexModel
+
+<partial name="sidenav" />
+
+<main id="pgmain">
+
+<h1>Clinets Messages</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Message[0].client_email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message[0].client_message)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message[0].message_data)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Message) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.client_email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.client_message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.message_data)
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</main>

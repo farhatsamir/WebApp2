@@ -1,0 +1,50 @@
+﻿@page
+@model final_project.Pages.admin.Sections.EditModel
+<partial name="sidenav" />
+
+<main id="pgmain">
+
+<h1>Edit</h1>
+
+<h4>Section</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Section.Id" />
+            <div class="form-group">
+                <label asp-for="Section.Name" class="control-label"></label>
+                <input asp-for="Section.Name" class="form-control" />
+                <span asp-validation-for="Section.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Section.Title" class="control-label"></label>
+                <input asp-for="Section.Title" class="form-control" />
+                <span asp-validation-for="Section.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Section.active" /> @Html.DisplayNameFor(model => model.Section.active)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Section.order" class="control-label"></label>
+                <input asp-for="Section.order" class="form-control" />
+                <span asp-validation-for="Section.order" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</main>

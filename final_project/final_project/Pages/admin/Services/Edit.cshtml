@@ -1,0 +1,62 @@
+﻿@page
+@model final_project.Pages.admin.Services.EditModel
+
+<partial name="sidenav" />
+
+<main id="pgmain">
+
+<h1>Edit</h1>
+
+<h4>Service</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Service.Id" />
+            <div class="form-group">
+                <label asp-for="Service.Img" class="control-label"></label>
+                <input asp-for="Service.Img" class="form-control" />
+                <span asp-validation-for="Service.Img" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.title" class="control-label"></label>
+                <input asp-for="Service.title" class="form-control" />
+                <span asp-validation-for="Service.title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.Description" class="control-label"></label>
+                <input asp-for="Service.Description" class="form-control" />
+                <span asp-validation-for="Service.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.Link" class="control-label"></label>
+                <input asp-for="Service.Link" class="form-control" />
+                <span asp-validation-for="Service.Link" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Service.active" /> @Html.DisplayNameFor(model => model.Service.active)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.order" class="control-label"></label>
+                <input asp-for="Service.order" class="form-control" />
+                <span asp-validation-for="Service.order" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+</main>

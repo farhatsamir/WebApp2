@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav"> </ul>
+@if (!SignInManager.IsSignedIn(User))
+{
+    <p>Cann"t Access this page.</p>
+        <script>window.location.href = "https://localhost:44345/";</script>
+        
+}
+

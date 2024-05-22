@@ -1,0 +1,45 @@
+﻿@page
+@model final_project.Pages.admin.Messages.CreateModel
+
+<partial name="sidenav" />
+
+<main id="pgmain">
+
+<h1>Create</h1>
+
+<h4>Message</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Message.client_email" class="control-label"></label>
+                <input asp-for="Message.client_email" class="form-control" />
+                <span asp-validation-for="Message.client_email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Message.client_message" class="control-label"></label>
+                <input asp-for="Message.client_message" class="form-control" />
+                <span asp-validation-for="Message.client_message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Message.message_data" class="control-label"></label>
+                <input asp-for="Message.message_data" class="form-control" />
+                <span asp-validation-for="Message.message_data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</main>

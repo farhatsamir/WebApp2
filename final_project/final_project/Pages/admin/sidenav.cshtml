@@ -1,0 +1,74 @@
+﻿<style>
+    body {
+        display:flex !important;
+    }
+</style>
+
+
+
+<div id="pgside">
+    <partial name="_loginpartial" />
+    <a class="admin-item" asp-area="Identity" asp-page="/Account/Manage/Index">
+        <div id="pguser">
+            <img src="~/img/admin/icon.png" />
+            <i class="txt">MY ADMIN</i>
+        </div>
+    </a>
+
+    <a id="item1" class="nav-item  " asp-area="" asp-page="/admin/Carousels/Index">
+        <i class="ico">&#9733;</i>
+        <i class="txt">Carousel</i>
+    </a>
+
+    <a id="item2" class="nav-item " asp-area="" asp-page="/admin/Services/Index">
+        <i class="ico">&#9728;</i>
+        <i class="txt">Services</i>
+    </a>
+
+    <a id="item3" class="nav-item " asp-area="" asp-page="/admin/Portfolioes/Index">
+        <i class="ico">&#9728;</i>
+        <i class="txt">Portfolioes</i>
+    </a>
+
+    <a id="item4" class="nav-item " asp-area="" asp-page="/admin/Products/Index">
+        <i class="ico">&#9737;</i>
+        <i class="txt">Products</i>
+    </a>
+
+    
+    <div class="hrr"></div>
+
+    <a id="item0" class="nav-item " asp-area="" asp-page="/Admin/Sections/index">
+        <i class="ico">&#9737;</i>
+        <i class="txt">Sections</i>
+    </a>
+
+    <a id="item5" class="nav-item " asp-area="" asp-page="/Admin/Messages/index">
+        <i class="ico">&#9737;</i>
+        <i class="txt">Messages</i>
+    </a>
+
+    <div class="hrr"></div>
+
+    <a class="nav-item " asp-area="identity" asp-page="/Account/Logout">
+        <i class="ico">&#9737;</i>
+        <i class="txt">Logout</i>
+    </a>
+
+</div>
+
+<script>
+    var url = window.location.href;
+    if (url.includes("Sections"))
+        document.getElementById("item0").classList.add("current");
+    else if (url.includes("Carousels"))
+        document.getElementById("item1").classList.add("current");
+    else if (url.includes("Services"))
+        document.getElementById("item2").classList.add("current");
+    else if (url.includes("Portfolioes"))
+        document.getElementById("item3").classList.add("current");
+    else if (url.includes("Products"))
+        document.getElementById("item4").classList.add("current");
+    else if (url.includes("Messages"))
+        document.getElementById("item5").classList.add("current");
+</script>

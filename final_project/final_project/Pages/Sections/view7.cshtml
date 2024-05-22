@@ -1,0 +1,63 @@
+﻿@using Microsoft.EntityFrameworkCore
+
+@{
+    var contextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=aspnet-final_project;
+                Trusted_Connection=True;MultipleActiveResultSets=true")
+            .Options;
+
+    ApplicationDbContext context = new ApplicationDbContext(contextOptions);
+
+    var results_list = context.Service;
+    var active_list = (from item in results_list
+                       where item.active == true
+                       orderby item.order ascending  /* or descending */
+                       select item).ToList();
+    /*
+    var sections_list = context.Section;
+    var section_list = (from item in sections_list
+                        where item.active == true && item.Name == "view7"
+                        orderby item.order ascending  
+                        select item).ToList();
+    */
+
+    globals g1 = new globals();
+    var section_data = g1.active_list[6].Title;
+
+}
+
+<!-- Services Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="section-title position-relative mb-5">
+                    @section_data
+                </h1>
+            </div>
+            <div class="col-lg-6 mb-5 mb-lg-0 pb-5 pb-lg-0"></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="owl-carousel service-carousel">
+
+                    @foreach (var item in active_list)
+                    {
+                        <div class="service-item">
+                            <div class="service-img mx-auto">
+                                <img class="rounded-circle w-100 h-100 bg-light p-3" src="img/@item.Img" style="object-fit: cover;">
+                            </div>
+                            <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
+                                <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">@item.title</h5>
+                                <p>@item.Description</p>
+                                <a href="@item.Link" class="border-bottom border-secondary text-decoration-none text-secondary">Learn More</a>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services End -->

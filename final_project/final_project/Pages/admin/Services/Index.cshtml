@@ -1,0 +1,58 @@
+﻿@page
+@model final_project.Pages.admin.Services.IndexModel
+
+
+<partial name="sidenav" />
+
+<main id="pgmain">
+
+<h1>Services Section</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+
+<div class="services_container">
+
+    @foreach (var item in Model.Service)
+    {
+        <div class="service_card">
+            <img class="img_service" src="~/img/@item.Img" />
+            <div class="service_title">Title</div>
+            <div class="service_data">@item.title</div>
+
+            <div class="service_title">Description</div>
+            <div class="service_data_big">@item.Description</div>
+
+            <div class="service_title">Link</div>
+            <div class="service_data">@item.Link</div>
+
+            <div class="service_title">Active</div>
+            <div class="service_data">@item.active</div>
+
+            <div class="service_title">Order</div>
+            <div class="service_data">@item.order</div>
+
+            <div class="crud_imgs">
+                    <a asp-area="" asp-page="./Edit" asp-route-id="@item.Id">
+                    <img src="~/img/admin/edit.png"  class="img_service_icon" />
+                </a>
+                
+                    <a asp-area="" asp-page="./Details" asp-route-id="@item.Id">
+                    <img src="~/img/admin/details.png" class="img_service_icon" />
+                </a>
+
+                    <a asp-area="" asp-page="./Delete" asp-route-id="@item.Id">
+                    <img src="~/img/admin/delete.png"  class="img_service_icon" />
+                </a>
+            </div>
+
+        </div>
+    }
+
+   
+</div>
+
+
+</main>

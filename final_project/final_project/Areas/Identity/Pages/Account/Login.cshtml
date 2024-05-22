@@ -1,0 +1,73 @@
+﻿@page
+@model LoginModel
+
+
+    <div class="container1">
+        <form id="account" method="post">
+            <div class="title">Login Form</div>
+
+            <label class="label1">Email id</label>
+            <input asp-for="Input.Email" autocomplete="username" aria-required="true" type="text" class="input1" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+            <label class="label1">Password</label>
+            <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" type="password" class="input1" />
+
+            <button id="login-submit" type="submit" class="btn1">LOGIN</button>
+        </form>
+    </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    body {
+        background-color: rgb(230, 230, 230);
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container1 {
+        width: 770px;
+        height: 500px;
+        background: white;
+        margin-left: calc(50% - 385px);
+        margin-top: 50px;
+        border-radius: 10px;
+        padding: 35px;
+        box-shadow: 0px 0px 20px 3px rgb(97, 97, 97);
+    }
+
+    .title {
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+    }
+
+    .label1 {
+        margin-bottom: 20px;
+        display: block;
+        font-size: 22px;
+    }
+
+    .input1 {
+        width: 96%;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 40px;
+    }
+
+    .btn1 {
+        width: 180px;
+        height: 50px;
+        background-color: rgb(38,163,37);
+        border: none;
+        color: white;
+        font-size: 20px;
+        margin-left: calc(50% - 90px);
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+</style>

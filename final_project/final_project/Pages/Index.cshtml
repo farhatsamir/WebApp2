@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+
+@using Microsoft.EntityFrameworkCore
+
+@{
+    var contextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=aspnet-final_project;
+                Trusted_Connection=True;MultipleActiveResultSets=true")
+            .Options;
+
+    ApplicationDbContext context = new ApplicationDbContext(contextOptions);
+    var results_list = context.Section;
+    // LinQ C# technology
+    var active_list = (from item in results_list
+                       where item.active == true
+                       orderby item.order ascending  /* or descending */
+                       select item).ToList();
+
+}
+
+@foreach (var item in active_list)
+{
+    <partial name="Sections/@item.Name" />
+    
+}
+
+

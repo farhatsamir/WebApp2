@@ -1,0 +1,56 @@
+﻿@page
+@model final_project.Pages.admin.Services.DetailsModel
+
+<partial name="sidenav" />
+
+<main id="pgmain">
+
+<h1>Details</h1>
+
+<div>
+    <h4>Service</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.Img)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Img)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.Link)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Link)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.active)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.active)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.order)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.order)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Service.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+</main>
